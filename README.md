@@ -1,5 +1,7 @@
 # Tensorflow Adventures with Arduino BLE33 Nano board with TinyML Hat
 
+*Primary guide: https://docs.arduino.cc/tutorials/nano-33-ble-sense/get-started-with-machine-learning/*
+
 # Important References
 
 Note: You need to read through these resources for a comprehensive preparation for this project:
