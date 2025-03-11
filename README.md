@@ -11,4 +11,6 @@ Note: You need to read through these resources for a comprehensive preparation f
 * Core Embedded Board Hardware Purchase: https://store.arduino.cc/products/arduino-nano-33-ble?srsltid=AfmBOopey-W0b6b4STEkSA6ET5SqUGSo2RTj36sxkQwWxb8Q8a_ZwURY
 * [OPTIONAL] Complete Course: https://learning.edx.org/course/course-v1:HarvardX+TinyML3+1T2024/home
 * Hardware Test: https://tinyml.seas.harvard.edu/assets/other/4D/22.03.11_Marcelo_Rovai_Handout.pdf
+* http://github.com/edgeimpulse/workshop-arduino-tinyml-roshambo
+* https://github.com/edgeimpulse/workshop-arduino-tinyml-roshambo
 
