@@ -1,0 +1,11 @@
+name: .env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.6
+  - matplotlib=3.3.4
+  - pandas
+  - numpy
+  - tensorflow=2.0.0
+  - pip 
