@@ -417,3 +417,147 @@ Write 490132 bytes to flash (120 pages)
 Done in 19.166 seconds
 
 ```
+
+
+# Final Testing
+
+* Our objective should now be to test how accurate the neural network on the Arduino nano is in distinguishing between 4 arm movements.
+* A basic test is to run the Arduino serial monitor make the movements and examine the classifications output to screen as follows:
+
+* Sidelifts:
+
+```
+flex: 0.045244
+sidelift: 0.442503
+curl: 0.000068
+rotcurl: 0.511722
+
+punch: 0.999812
+flex: 0.000000
+sidelift: 0.000177
+curl: 0.000000
+rotcurl: 0.000011
+
+punch: 0.000201
+flex: 0.050679
+sidelift: 0.588887
+curl: 0.000039
+rotcurl: 0.360194
+
+punch: 0.000242
+flex: 0.052272
+sidelift: 0.550280
+curl: 0.000047
+rotcurl: 0.397159
+
+```
+
+Note: The above the sidelift scores highest most of the time. This data sample set may need to be averaged before deciding which movement is being performed.
+
+
+* Punch
+
+```
+flex: 0.000000
+sidelift: 0.000099
+curl: 0.000000
+rotcurl: 0.000002
+
+punch: 0.999847
+flex: 0.000000
+sidelift: 0.000150
+curl: 0.000000
+rotcurl: 0.000003
+
+punch: 0.999987
+flex: 0.000000
+sidelift: 0.000010
+curl: 0.000000
+rotcurl: 0.000003
+```
+
+In the above sample a "punch" is being well classified. 
+
+
+* Flex
+
+
+```
+
+punch: 0.979143
+flex: 0.000000
+sidelift: 0.020585
+curl: 0.000000
+rotcurl: 0.000272
+
+punch: 0.000055
+flex: 0.011254
+sidelift: 0.905620
+curl: 0.000004
+rotcurl: 0.083066
+
+punch: 0.000096
+flex: 0.089102
+sidelift: 0.563129
+curl: 0.000043
+rotcurl: 0.347630
+
+```
+
+In this sample "flex" movement (a kind of circular hook) is not being well classified. More data should be generated.i
+
+* Curl
+
+```
+
+punch: 0.000089
+flex: 0.124294
+sidelift: 0.005809
+curl: 0.493117
+rotcurl: 0.376690
+
+punch: 0.000205
+flex: 0.000143
+sidelift: 0.000015
+curl: 0.992969
+rotcurl: 0.006667
+
+punch: 0.000003
+flex: 0.003497
+sidelift: 0.000031
+curl: 0.985143
+rotcurl: 0.011326
+```
+
+* In the above sample curl'ing movement was correctly identified.
+
+
+* Rotcurl
+
+```
+sidelift: 0.000000
+curl: 0.142004
+rotcurl: 0.000009
+
+punch: 0.845578
+flex: 0.000001
+sidelift: 0.000015
+curl: 0.152724
+rotcurl: 0.001682
+
+punch: 0.980849
+flex: 0.000000
+sidelift: 0.000006
+curl: 0.018678
+rotcurl: 0.000467
+```
+
+* In the above sample "Rotating Curlf" gets misclassified as something like either a punch or a curl, probably because of the complexity of the movement and the resolution of the accelerometer and gyroscope embedded in the microcontroller. This should be remedied with more data samples.
+
+# Where to from here?
+
+* Generate better raw data for further training. Repeat the four movements more precisely, perhaps using 10 or more iterations each to gather more consistent data.
+* add a python code to decide based on highest scoring probability which movement is being executed and output that as a "final decision" to the screen.
+* Use the Arduino Nano GPIO pins to output a unique signal for each movement (or illuminate an LED attached to a GPIO pin).
+
+
